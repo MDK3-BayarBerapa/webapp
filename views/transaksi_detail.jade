@@ -1,0 +1,16 @@
+h2
+  History Transaksi Layanan Publik
+  hr
+h4 {{namaDati2}}
+p
+  table.table
+    tr
+      th Tanggal
+      th Nama kantor
+      th Nama Layanan
+      th Bayar
+    tr(ng-repeat='data in dataBayarDetail')
+      td {{data.TglTransaksi}}
+      td {{data.NamaKantor}}
+      td {{data.Layanan}}
+      td {{data.Bayar}}

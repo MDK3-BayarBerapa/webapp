@@ -1,0 +1,13 @@
+h2
+  Rata-rata yang Dibayar Untuk Layanan Publik Per Pemerintah Daerah
+  hr
+h4 Provinsi {{namaProvinsi}}
+p
+  table.table
+    tr
+      th Pemda
+      th Rata-rata Pembayaran
+    tr(ng-repeat='data in dataBayarDati2')
+      td
+        a(href="#" ng-click="viewHistoryLayanan(data)"){{data.NamaDati2}}
+      td {{data.RataRataBayar}}

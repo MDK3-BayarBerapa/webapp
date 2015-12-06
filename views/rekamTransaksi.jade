@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  include navi.html
+
+  h2
+    strong Rekam Transaksi Baru
+    hr
+  p
+    form#bootstrapSelectForm.form-horizontal(ng-controller='transaksiController')
+      div.form-group
+        label.col-xs-3.control-label Provinsi
+        div.col-xs-5.selectContainer
+          select.form-control(title="Pilih Propinsi" ng-model='selectedProvinsi' ng-change='updatePemdaList()')
+            option(ng-repeat='provinsi in provinsiList' value='{{provinsi.IDProv}}') {{provinsi.NamaProvinsi}}
+
+      div.form-group
+        label.col-xs-3.control-label Pemda
+        div.col-xs-5.selectContainer
+          select.form-control(title="Pilih Pemda" ng-model='selectedPemda')
+            option(ng-repeat='pemda in pemdaList' value='{{pemda.IDPemda}}') {{pemda.NamaPemda}}
+
+      div.form-group
+        label.col-xs-3.control-label Jenis Layanan
+        div.col-xs-5.selectContainer
+          select.form-control(title="Pilih Jenis Pemda" ng-model='selectedLayanan')
+            option(ng-repeat='layanan in layananList' value='{{layanan.IDLayanan}}') {{layanan.NamaLayanan}}
+
+      div.form-group
+        label.col-xs-3.control-label Nama Kantor
+        div.col-xs-5
+          input.form-control(type='text' placeholder='Kelurahan/RT/RW' ng-model='namaKantor')
+
+      div.form-group
+        label.col-xs-3.control-label Bayar Berapa
+        div.col-xs-5
+          div.input-group
+            span.input-group-addon Rp.
+            input.form-control(type='text' placeholder='Berapa yang anda bayar?' ng-model='bayar')
+
+      div.form-group
+        div.col-xs-5.col-xs-offset-3
+          button.btn.btn-primary(ng-click='validateForm()') Kirim
